@@ -1,12 +1,16 @@
 import {
   Column,
   CreateDateColumn,
+  Entity,
   OneToMany,
   PrimaryGeneratedColumn,
+  Unique,
   UpdateDateColumn,
 } from "typeorm";
 import { Product } from "./Product";
 
+@Entity()
+@Unique(["code"])
 export class Category {
   @PrimaryGeneratedColumn()
   public readonly id!: number;
