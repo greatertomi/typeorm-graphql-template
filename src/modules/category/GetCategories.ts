@@ -13,7 +13,9 @@ export class GetCategories {
 
   @Query((_type) => [Category])
   public async getCategories(): Promise<Category[]> {
-    const categories = await this.categoryRepository.find();
+    const categories = await this.categoryRepository.find({
+      relations: ["products"],
+    });
     return categories;
   }
 }
